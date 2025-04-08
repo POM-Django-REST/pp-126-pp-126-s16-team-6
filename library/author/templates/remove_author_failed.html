@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Remove Author Failed{% endblock %}
+{% block content %}
+<h1>Failed to Remove Author</h1>
+<p>Author "{{ author.name }} {{ author.surname }}" cannot be removed because they are associated with one or more books.</p>
+<a href="{% url 'author_list' %}">Go back to the author list</a>
+{% endblock %}

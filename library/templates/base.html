@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>
+      {% block title %}
+          S13
+      {% endblock %}
+    </title>
+  </head>
+  <body>
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a> |
+        <a href="{% url 'book_list' %}">Books</a> |
+        <a href="{% url 'author_list' %}">Authors</a> |
+        <a href="{% url 'order_list' %}">Orders</a> |
+        <a href="{% url 'user_list' %}">Users</a> |
+
+        <p>User: {{user.email}}</p>
+        {% if user.role == 0 %}
+            <p>Role: User</p>
+        {% elif user.role == 1 %}
+            <p>Role: Librarian</p>
+        {% endif %}
+
+        <br>
+        <div class="container">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+      {% else %}
+        <h1>Please log in</h1>
+        <a href="{% url 'login' %}">Login</a>
+
+        <div class="authentication">
+            {% block authentication %}
+
+            {% endblock %}
+        </div>
+
+      {% endif %}
+
+
+  </body>
+</html>

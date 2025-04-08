@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} {{book.name}} {% endblock %}
+{% block content %}
+
+
+<h2>Book title: {{ book.name }}</h2>
+
+<p><strong>Description:</strong> {{ book.description }}</p>
+<p><strong>Count:</strong> {{ book.count }}</p>
+<p><strong>Authors:</strong>
+    {% if book.author %}
+        {{ book.author }}
+    {% else %}
+        No authors listed.
+    {% endif %}
+</p>
+<p><strong>Publication year:</strong> {{ book.publication_year }}</p>
+<p><strong>Issue date:</strong> {{ book.issue_date }}</p>
+
+
+<!-- Back Button -->
+<button onclick="history.back()">Back to Book List</button>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block authentication %}
+
+
+    <h2>Register</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+        <label>First Name: <input type="text" name="first_name" required></label><br>
+        <label>Last Name: <input type="text" name="last_name" required></label><br>
+        <label>Middle Name: <input type="text" name="middle_name"></label><br>
+        <label>Email: <input type="email" name="email" required></label><br>
+        <label>Password: <input type="password" name="password" required></label><br>
+        <label>Role:
+            <select name="role" required>
+                <option value="0">Visitor</option>
+                <option value="1">Librarian</option>
+            </select>
+        </label><br>
+        <button type="submit">Register</button>
+    </form>
+    <a href="{% url 'login' %}">Already have an account? Login here.</a>
+
+
+{% endblock %}

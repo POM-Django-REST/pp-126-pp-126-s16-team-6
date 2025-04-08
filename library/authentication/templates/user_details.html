@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} {{user.email}} {% endblock %}
+{% block content %}
+
+
+<h2>User: {{ customuser.email }}</h2>
+
+<p><strong>First name:</strong> {{ customuser.first_name }}</p>
+<p><strong>Last name:</strong> {{ customuser.last_name }}</p>
+<p><strong>Middle name:</strong> {{ customuser.middle_name }}</p>
+<p><strong>Email:</strong> {{ customuser.email }}</p>
+<p><strong>Created at:</strong> {{ customuser.created_at }}</p>
+<p><strong>Updated at:</strong> {{ customuser.updated_at }}</p>
+<p><strong>Role:</strong> {{ customuser.get_role_display }}</p>
+
+<!-- Back Button -->
+<button onclick="history.back()">Back to User List</button>
+
+{% endblock %}

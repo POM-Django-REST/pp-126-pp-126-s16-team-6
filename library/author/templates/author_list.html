@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}All Authors{% endblock %}
+{% block content %}
+<h1>All Authors</h1>
+
+<form method="get">
+    <input type="text" name="search" placeholder="Search authors by name" value="{{ request.GET.search }}">
+    <button type="submit">Search</button>
+</form>
+
+<ul>
+{% for author in authors %}
+    <li>
+        <strong>Name:</strong> {{ author.name }} {{ author.surname }} {{ author.patronymic }} | 
+        <a href="{% url 'remove_author' author.id %}">Remove</a>
+    </li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'create_author' %}">Create New Author</a>
+
+{% endblock %}
